@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VigilaCidade | Login</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            min-height: 100vh;
+
+            background:
+                radial-gradient(
+                    circle at 20% 30%,
+                    rgba(169, 94, 255, 0.15),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 80% 70%,
+                    rgba(133, 40, 255, 0.12),
+                    transparent 35%
+                ),
+                #0b071f;
+
+            color: #e8f0f7;
+        }
+
+        .pagina {
+            min-height: 100vh;
+
+            display: grid;
+            grid-template-columns: 1.15fr .85fr;
+        }
+
+
+        /* =========================
+           LADO ESQUERDO
+        ========================= */
+
+        .apresentacao {
+            display: flex;
+            align-items: center;
+
+            padding: 80px 10%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(49, 28, 68, .95),
+                    rgba(18, 7, 32, .98)
+                );
+
+            border-right: 1px solid #30204f;
+        }
+
+        .conteudo {
+            max-width: 650px;
+        }
+
+        .logo {
+            font-size: 1.35rem;
+            font-weight: 800;
+
+            color: white;
+        }
+
+        .logo span {
+            color: #a95eff;
+            margin-right: 7px;
+        }
+
+        .tag {
+            display: inline-block;
+
+            margin-top: 80px;
+
+            color: #a95eff;
+
+            font-size: .75rem;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+        }
+
+        .conteudo h1 {
+            font-size: clamp(2.8rem, 5vw, 5rem);
+
+            line-height: 1.05;
+
+            margin: 20px 0;
+        }
+
+        .conteudo h1 strong {
+            display: block;
+            color: #a95eff;
+        }
+
+        .descricao {
+            max-width: 600px;
+
+            color: #aaa0bd;
+
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+
+        /* =========================
+           STATUS
+        ========================= */
+
+        .status {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+
+            margin-top: 40px;
+        }
+
+        .online {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            color: #35d07f;
+
+            font-size: .75rem;
+            font-weight: 800;
+        }
+
+        .bolinha {
+            width: 9px;
+            height: 9px;
+
+            border-radius: 50%;
+
+            background: #35d07f;
+
+            box-shadow:
+                0 0 0 7px rgba(53, 208, 127, .08);
+        }
+
+        .horario {
+            padding-left: 30px;
+
+            border-left: 1px solid #3a294e;
+        }
+
+        .horario strong {
+            display: block;
+
+            color: white;
+        }
+
+        .horario span {
+            color: #7f738f;
+
+            font-size: .7rem;
+        }
+
+
+        /* =========================
+           MINI CARDS
+        ========================= */
+
+        .cards {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+
+            margin-top: 45px;
+        }
+
+        .card {
+            display: flex;
+            align-items: center;
+
+            gap: 12px;
+
+            padding: 18px;
+
+            background: #160d2e;
+
+            border: 1px solid #2c1c49;
+
+            border-radius: 14px;
+        }
+
+        .card-icon {
+            font-size: 1.5rem;
+        }
+
+        .card strong,
+        .card small {
+            display: block;
+        }
+
+        .card strong {
+            color: white;
+
+            font-size: 1.2rem;
+        }
+
+        .card small {
+            color: #82769a;
+
+            font-size: .7rem;
+        }
+
+
+        /* =========================
+           LOGIN
+        ========================= */
+
+        .login-area {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 50px;
+        }
+
+        .login-card {
+            width: 100%;
+            max-width: 440px;
+
+            padding: 40px;
+
+            background: #140c2b;
+
+            border: 1px solid #30204f;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 30px 80px rgba(0, 0, 0, .4);
+        }
+
+        .login-header {
+            text-align: center;
+
+            margin-bottom: 30px;
+        }
+
+        .icone {
+            width: 60px;
+            height: 60px;
+
+            display: grid;
+            place-items: center;
+
+            margin: 0 auto 20px;
+
+            border-radius: 15px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #a95eff,
+                    #8528ff
+                );
+
+            font-size: 1.5rem;
+
+            box-shadow:
+                0 10px 35px rgba(105, 40, 255, .25);
+        }
+
+        .login-header span {
+            color: #a95eff;
+
+            font-size: .7rem;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+        }
+
+        .login-header h2 {
+            margin: 8px 0;
+
+            font-size: 1.8rem;
+        }
+
+        .login-header p {
+            color: #817695;
+
+            font-size: .8rem;
+        }
+
+
+        /* =========================
+           INPUTS
+        ========================= */
+
+        .campo {
+            margin-bottom: 20px;
+        }
+
+        .campo label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: #b7aec8;
+
+            font-size: .8rem;
+        }
+
+        .input-box {
+            display: flex;
+            align-items: center;
+
+            background: #160d2e;
+
+            border: 1px solid #31295d;
+
+            border-radius: 10px;
+
+            transition: .3s;
+        }
+
+        .input-box:focus-within {
+            border-color: #a95eff;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(169, 94, 255, .08);
+        }
+
+        .input-box > span {
+            padding-left: 14px;
+        }
+
+        .input-box input {
+            width: 100%;
+
+            padding: 14px;
+
+            background: transparent;
+
+            border: 0;
+            outline: 0;
+
+            color: white;
+
+            font-family: inherit;
+
+            font-size: .9rem;
+        }
+
+        .input-box input::placeholder {
+            color: #716783;
+        }
+
+
+        /* =========================
+           OPÇÕES
+        ========================= */
+
+        .opcoes {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin: 5px 0 25px;
+
+            font-size: .72rem;
+        }
+
+        .lembrar {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+
+            color: #9186a7;
+        }
+
+        .lembrar input {
+            accent-color: #a95eff;
+        }
+
+        .esqueci {
+            color: #a95eff;
+
+            text-decoration: none;
+        }
+
+
+        /* =========================
+           BOTÃO
+        ========================= */
+
+        .btn-login {
+            width: 100%;
+
+            padding: 15px;
+
+            border: 0;
+            border-radius: 10px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #a95eff,
+                    #8528ff
+                );
+
+            color: white;
+
+            font-family: inherit;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            transition: .3s;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 12px 35px
+                rgba(110, 33, 253, .3);
+        }
+
+
+        /* =========================
+           SEGURANÇA
+        ========================= */
+
+        .seguranca {
+            display: flex;
+            align-items: center;
+
+            gap: 12px;
+
+            margin-top: 25px;
+            padding-top: 20px;
+
+            border-top: 1px solid #2a1d42;
+
+            color: #817695;
+        }
+
+        .seguranca strong,
+        .seguranca small {
+            display: block;
+        }
+
+        .seguranca strong {
+            color: #aaa0b9;
+
+            font-size: .75rem;
+        }
+
+        .seguranca small {
+            font-size: .65rem;
+        }
+
+
+        /* =========================
+           VOLTAR
+        ========================= */
+
+        .voltar {
+            display: block;
+
+            margin-top: 25px;
+
+            text-align: center;
+
+            color: #817695;
+
+            font-size: .75rem;
+
+            text-decoration: none;
+        }
+
+        .voltar:hover {
+            color: #a95eff;
+        }
+
+
+        /* =========================
+           MENSAGEM
+        ========================= */
+
+        #mensagem {
+            display: none;
+
+            margin-top: 15px;
+
+            padding: 10px;
+
+            border-radius: 8px;
+
+            text-align: center;
+
+            font-size: .75rem;
+        }
+
+        #mensagem.erro {
+            display: block;
+
+            color: #ff6975;
+
+            background: rgba(255, 92, 105, .1);
+        }
+
+        #mensagem.sucesso {
+            display: block;
+
+            color: #35d07f;
+
+            background: rgba(53, 208, 127, .1);
+        }
+
+
+        /* =========================
+           RESPONSIVO
+        ========================= */
+
+        @media (max-width: 1000px) {
+
+            .pagina {
+                grid-template-columns: 1fr;
+            }
+
+            .apresentacao {
+                padding: 60px 8%;
+
+                border-right: 0;
+
+                border-bottom: 1px solid #30204f;
+            }
+
+            .tag {
+                margin-top: 40px;
+            }
+
+            .login-area {
+                padding: 60px 8%;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .apresentacao {
+                padding: 40px 6%;
+            }
+
+            .conteudo h1 {
+                font-size: 2.7rem;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .status {
+                gap: 15px;
+            }
+
+            .login-area {
+                padding: 40px 5%;
+            }
+
+            .login-card {
+                padding: 28px 22px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <main class="pagina">
+
+
+        <!-- APRESENTAÇÃO -->
+
+        <section class="apresentacao">
+
+            <div class="conteudo">
+
+                <div class="logo">
+                    <span>◉</span>
+                    VigilaCidade
+                </div>
+
+                <span class="tag">
+                    CENTRAL DE MONITORAMENTO
+                </span>
+
+                <h1>
+                    Bem-vindo à
+                    <strong>Área do Operador.</strong>
+                </h1>
+
+                <p class="descricao">
+                    Acesse a central do VigilaCidade para acompanhar
+                    câmeras, ocorrências, manutenção e infraestrutura
+                    de monitoramento urbano.
+                </p>
+
+
+                <div class="status">
+
+                    <div class="online">
+
+                        <span class="bolinha"></span>
+
+                        CENTRAL ONLINE
+
+                    </div>
+
+                    <div class="horario">
+
+                        <strong>24H</strong>
+
+                        <span>
+                            Monitoramento
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="cards">
+
+                    <div class="card">
+
+                        <span class="card-icon">
+                            📹
+                        </span>
+
+                        <div>
+                            <strong>21</strong>
+                            <small>Câmeras</small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <span class="card-icon">
+                            🟢
+                        </span>
+
+                        <div>
+                            <strong>18</strong>
+                            <small>Online</small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <span class="card-icon">
+                            🚨
+                        </span>
+
+                        <div>
+                            <strong>07</strong>
+                            <small>Ocorrências</small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- LOGIN -->
+
+        <section class="login-area">
+
+            <div class="login-card">
+
+                <div class="login-header">
+
+                    <div class="icone">
+                        ◉
+                    </div>
+
+                    <span>
+                        ACESSO RESTRITO
+                    </span>
+
+                    <h2>
+                        Entrar no sistema
+                    </h2>
+
+                    <p>
+                        Informe suas credenciais para acessar a central.
+                    </p>
+
+                </div>
+
+
+                <form id="loginForm">
+
+
+                    <div class="campo">
+
+                        <label for="usuario">
+                            Usuário
+                        </label>
+
+                        <div class="input-box">
+
+                            <span>👤</span>
+
+                            <input
+                                type="text"
+                                id="usuario"
+                                placeholder="Digite seu usuário"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="senha">
+                            Senha
+                        </label>
+
+                        <div class="input-box">
+
+                            <span>🔒</span>
+
+                            <input
+                                type="password"
+                                id="senha"
+                                placeholder="Digite sua senha"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="opcoes">
+
+                        <label class="lembrar">
+
+                            <input type="checkbox">
+
+                            Lembrar acesso
+
+                        </label>
+
+                        <a
+                            href="#"
+                            class="esqueci"
+                            onclick="esqueciSenha(event)"
+                        >
+                            Esqueci minha senha
+                        </a>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn-login"
+                    >
+                        Entrar na central
+                    </button>
+
+
+                    <div id="mensagem"></div>
+
+                </form>
+
+
+                <div class="seguranca">
+
+                    <span>🔐</span>
+
+                    <div>
+
+                        <strong>
+                            Acesso seguro
+                        </strong>
+
+                        <small>
+                            Utilize apenas suas credenciais autorizadas.
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <a
+                    href="index.html"
+                    class="voltar"
+                >
+                    ← Voltar para o início
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        const formulario =
+            document.getElementById("loginForm");
+
+        const mensagem =
+            document.getElementById("mensagem");
+
+
+        formulario.addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+                const usuario =
+                    document
+                    .getElementById("usuario")
+                    .value
+                    .trim();
+
+                const senha =
+                    document
+                    .getElementById("senha")
+                    .value
+                    .trim();
+
+
+                if (
+                    usuario === "operador" &&
+                    senha === "123456"
+                ) {
+
+                    mensagem.textContent =
+                        "Login realizado com sucesso!";
+
+                    mensagem.className =
+                        "sucesso";
+
+
+                    setTimeout(function() {
+
+                        window.location.href =
+                            "index.html";
+
+                    }, 800);
+
+                } else {
+
+                    mensagem.textContent =
+                        "Usuário ou senha incorretos.";
+
+                    mensagem.className =
+                        "erro";
+
+                }
+
+            }
+        );
+
+
+        function esqueciSenha(event) {
+
+            event.preventDefault();
+
+            mensagem.textContent =
+                "Entre em contato com o administrador para recuperar seu acesso.";
+
+            mensagem.className =
+                "erro";
+
+        }
+
+    </script>
+
+</body>
+
+</html>
+```

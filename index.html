@@ -30,6 +30,1464 @@
         <a href="#manutencao">Manutenção</a>
     </nav>
 
+<a href="login.html" class="btn-operador">
+    Área do Operador
+</a>
+
+</header>
+
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero" id="inicio">
+
+    <div class="hero-texto">
+
+        <span class="tag">MONITORAMENTO URBANO</span>
+
+        <h1>
+            Uma cidade mais
+            <strong>conectada e organizada.</strong>
+        </h1>
+
+        <p>
+            Uma central digital para acompanhar câmeras,
+            ocorrências, operadores, manutenção e infraestrutura
+            de monitoramento urbano.
+        </p>
+
+        <div class="hero-botoes">
+
+            <a href="#dashboard" class="btn-principal">
+                Acessar Dashboard
+            </a>
+
+            <a href="#cameras" class="btn-secundario">
+                Ver Câmeras
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="central">
+
+        <div class="central-topo">
+            <span>● CENTRAL ONLINE</span>
+            <span>24H</span>
+        </div>
+
+        <div class="mapa">
+
+            <div class="camera camera1">CAM 01</div>
+            <div class="camera camera2">CAM 02</div>
+            <div class="camera camera3">CAM 03</div>
+            <div class="camera camera4">CAM 04</div>
+            <div class="camera camera5">CAM 05</div>
+
+        </div>
+
+        <div class="central-info">
+
+            <div>
+                <strong id="miniCameras">21</strong>
+                <span>Câmeras</span>
+            </div>
+
+            <div>
+                <strong>18</strong>
+                <span>Online</span>
+            </div>
+
+            <div>
+                <strong>03</strong>
+                <span>Manutenção</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DASHBOARD -->
+
+<section class="secao" id="dashboard">
+
+    <div class="titulo-secao">
+        <span>VISÃO GERAL</span>
+
+        <h2>Dashboard de monitoramento</h2>
+
+        <p>
+            Acompanhe rapidamente a situação da infraestrutura.
+        </p>
+    </div>
+
+
+    <div class="cards">
+
+        <div class="card indicador">
+            <span class="icone">📹</span>
+            <div>
+                <small>Total de câmeras</small>
+                <strong id="totalCameras">21</strong>
+            </div>
+        </div>
+
+
+        <div class="card indicador online">
+            <span class="icone">🟢</span>
+            <div>
+                <small>Câmeras online</small>
+                <strong id="camerasOnline">18</strong>
+            </div>
+        </div>
+
+
+        <div class="card indicador alerta">
+            <span class="icone">⚠️</span>
+            <div>
+                <small>Em manutenção</small>
+                <strong id="camerasManutencao">03</strong>
+            </div>
+        </div>
+
+
+        <div class="card indicador ocorrencia">
+            <span class="icone">🚨</span>
+            <div>
+                <small>Ocorrências hoje</small>
+                <strong id="ocorrenciasHoje">07</strong>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="dashboard-grid">
+
+        <div class="painel">
+
+            <div class="painel-titulo">
+                <h3>Status das câmeras</h3>
+                <span>Atualizado agora</span>
+            </div>
+
+            <div class="barra-status">
+
+                <div class="barra">
+                    <div class="barra-online" style="width:75%"></div>
+                </div>
+
+                <div class="legenda">
+
+                    <span>
+                        <i class="verde"></i>
+                        Online
+                    </span>
+
+                    <span>
+                        <i class="amarelo"></i>
+                        Manutenção
+                    </span>
+
+                    <span>
+                        <i class="vermelho"></i>
+                        Offline
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="painel">
+
+            <div class="painel-titulo">
+                <h3>Infraestrutura</h3>
+            </div>
+
+            <div class="infra">
+
+                <div>
+                    <span>⚡ Energia</span>
+                    <strong>98%</strong>
+                </div>
+
+                <div>
+                    <span>📡 Conectividade</span>
+                    <strong>95%</strong>
+                </div>
+
+                <div>
+                    <span>🔧 Manutenção</span>
+                    <strong>03</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CÂMERAS -->
+
+<section class="secao escura" id="cameras">
+
+    <div class="titulo-secao">
+
+        <span>CENTRAL DE CÂMERAS</span>
+
+        <h2>Equipamentos monitorados</h2>
+
+        <p>
+            Consulte a situação das câmeras cadastradas.
+        </p>
+
+    </div>
+
+
+    <div class="filtros">
+
+        <input
+            type="text"
+            id="pesquisaCamera"
+            placeholder="🔎 Pesquisar câmera ou localização..."
+            onkeyup="filtrarCameras()"
+        >
+
+        <select id="filtroStatus" onchange="filtrarCameras()">
+            <option value="todos">Todos</option>
+            <option value="online">Online</option>
+            <option value="manutencao">Manutenção</option>
+            <option value="offline">Offline</option>
+        </select>
+
+    </div>
+
+
+    <div class="camera-grid" id="listaCameras">
+
+        <div class="camera-card" data-status="online">
+
+            <div class="camera-imagem">
+                <span>● AO VIVO</span>
+                <strong>CAM 001</strong>
+            </div>
+
+            <div class="camera-conteudo">
+
+                <h3>Praça Central</h3>
+
+                <p>📍 Região Central</p>
+
+                <div class="camera-status online">
+                    ● Online
+                </div>
+
+                <small>Energia: Estável</small>
+
+            </div>
+
+        </div>
+
+
+        <div class="camera-card" data-status="online">
+
+            <div class="camera-imagem">
+                <span>● AO VIVO</span>
+                <strong>CAM 002</strong>
+            </div>
+
+            <div class="camera-conteudo">
+
+                <h3>Terminal Urbano</h3>
+
+                <p>📍 Setor Norte</p>
+
+                <div class="camera-status online">
+                    ● Online
+                </div>
+
+                <small>Energia: Estável</small>
+
+            </div>
+
+        </div>
+
+
+        <div class="camera-card" data-status="manutencao">
+
+            <div class="camera-imagem manutencao">
+                <span>⚠ MANUTENÇÃO</span>
+                <strong>CAM 003</strong>
+            </div>
+
+            <div class="camera-conteudo">
+
+                <h3>Parque Municipal</h3>
+
+                <p>📍 Setor Sul</p>
+
+                <div class="camera-status manutencao">
+                    ● Manutenção
+                </div>
+
+                <small>Previsão: 14:30</small>
+
+            </div>
+
+        </div>
+
+
+        <div class="camera-card" data-status="offline">
+
+            <div class="camera-imagem offline">
+                <span>● OFFLINE</span>
+                <strong>CAM 004</strong>
+            </div>
+
+            <div class="camera-conteudo">
+
+                <h3>Avenida Principal</h3>
+
+                <p>📍 Setor Leste</p>
+
+                <div class="camera-status offline">
+                    ● Offline
+                </div>
+
+                <small>Verificar conexão</small>
+
+            </div>
+
+        </div>
+
+
+        <div class="camera-card" data-status="online">
+
+            <div class="camera-imagem">
+                <span>● AO VIVO</span>
+                <strong>CAM 005</strong>
+            </div>
+
+            <div class="camera-conteudo">
+
+                <h3>Praça da Estação</h3>
+
+                <p>📍 Setor Oeste</p>
+
+                <div class="camera-status online">
+                    ● Online
+                </div>
+
+                <small>Energia: Estável</small>
+
+            </div>
+
+        </div>
+
+
+        <div class="camera-card" data-status="online">
+
+            <div class="camera-imagem">
+                <span>● AO VIVO</span>
+                <strong>CAM 006</strong>
+            </div>
+
+            <div class="camera-conteudo">
+
+                <h3>Centro Esportivo</h3>
+
+                <p>📍 Setor Sul</p>
+
+                <div class="camera-status online">
+                    ● Online
+                </div>
+
+                <small>Energia: Estável</small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- OCORRÊNCIAS -->
+
+<section class="secao" id="ocorrencias">
+
+    <div class="titulo-secao">
+
+        <span>REGISTRO</span>
+
+        <h2>Ocorrências monitoradas</h2>
+
+        <p>
+            Área demonstrativa para registrar situações observadas pelos operadores.
+        </p>
+
+    </div>
+
+
+    <div class="ocorrencia-layout">
+
+        <form id="formOcorrencia" class="formulario">
+
+            <h3>Registrar ocorrência</h3>
+
+            <label>Local</label>
+
+            <input
+                type="text"
+                id="localOcorrencia"
+                placeholder="Ex.: Praça Central"
+                required
+            >
+
+
+            <label>Tipo de ocorrência</label>
+
+            <select id="tipoOcorrencia" required>
+
+                <option value="">Selecione</option>
+                <option>Furto</option>
+                <option>Vandalismo</option>
+                <option>Acidente</option>
+                <option>Agressão</option>
+                <option>Assédio</option>
+                <option>Outra situação</option>
+
+            </select>
+
+
+            <label>Prioridade</label>
+
+            <select id="prioridadeOcorrencia">
+
+                <option>Baixa</option>
+                <option>Normal</option>
+                <option>Alta</option>
+                <option>Urgente</option>
+
+            </select>
+
+
+            <label>Descrição</label>
+
+            <textarea
+                id="descricaoOcorrencia"
+                placeholder="Descreva a situação..."
+                required
+            ></textarea>
+
+
+            <button type="submit" class="btn-principal">
+                Registrar ocorrência
+            </button>
+
+        </form>
+
+
+        <div class="painel ocorrencias-lista">
+
+            <div class="painel-titulo">
+
+                <h3>Últimas ocorrências</h3>
+
+                <span>Dados demonstrativos</span>
+
+            </div>
+
+
+            <div id="listaOcorrencias">
+
+                <div class="ocorrencia">
+
+                    <div class="ocorrencia-icone">
+                        ⚠️
+                    </div>
+
+                    <div>
+
+                        <strong>Vandalismo</strong>
+
+                        <p>Praça Central</p>
+
+                        <small>Hoje às 18:42</small>
+
+                    </div>
+
+                    <span class="prioridade alta">
+                        Alta
+                    </span>
+
+                </div>
+
+
+                <div class="ocorrencia">
+
+                    <div class="ocorrencia-icone">
+                        🚨
+                    </div>
+
+                    <div>
+
+                        <strong>Acidente</strong>
+
+                        <p>Avenida Principal</p>
+
+                        <small>Hoje às 17:21</small>
+
+                    </div>
+
+                    <span class="prioridade normal">
+                        Normal
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MANUTENÇÃO -->
+
+<section class="secao escura" id="manutencao">
+
+    <div class="titulo-secao">
+
+        <span>INFRAESTRUTURA</span>
+
+        <h2>Controle de manutenção</h2>
+
+        <p>
+            Acompanhe equipamentos que precisam de intervenção.
+        </p>
+
+    </div>
+
+
+    <div class="tabela-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Câmera</th>
+                    <th>Local</th>
+                    <th>Problema</th>
+                    <th>Energia</th>
+                    <th>Status</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>CAM 003</td>
+                    <td>Parque Municipal</td>
+                    <td>Manutenção preventiva</td>
+                    <td>Estável</td>
+                    <td>
+                        <span class="status manutencao">
+                            Em manutenção
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>CAM 004</td>
+                    <td>Avenida Principal</td>
+                    <td>Falha de conexão</td>
+                    <td>Estável</td>
+                    <td>
+                        <span class="status offline">
+                            Offline
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>CAM 009</td>
+                    <td>Praça Norte</td>
+                    <td>Fonte de energia</td>
+                    <td>Instável</td>
+                    <td>
+                        <span class="status manutencao">
+                            Verificar
+                        </span>
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+<!-- OPERADORES -->
+
+<section class="secao">
+
+    <div class="titulo-secao">
+
+        <span>EQUIPE</span>
+
+        <h2>Operadores de monitoramento</h2>
+
+        <p>
+            Controle demonstrativo dos profissionais responsáveis pelo acompanhamento.
+        </p>
+
+    </div>
+
+
+    <div class="operadores">
+
+        <div class="operador">
+            <div class="avatar">FO</div>
+            <div>
+                <strong>Felipe de Oliveira Tomaello</strong>
+                <span>Operador • Online</span>
+            </div>
+        </div>
+
+
+        <div class="operador">
+            <div class="avatar">DO</div>
+            <div>
+                <strong>Douglas Rodrigues Farias</strong>
+                <span>Operador • Online</span>
+            </div>
+        </div>
+
+
+        <div class="operador">
+            <div class="avatar">KP</div>
+            <div>
+                <strong>Kauan Pietro Cunha Rodrigues</strong>
+                <span>Operador • Online</span>
+            </div>
+        </div>
+
+
+        <div class="operador">
+            <div class="avatar">EC</div>
+            <div>
+                <strong>Emanuel Cristian Ora de Oliveira</strong>
+                <span>Operador • Offline</span>
+            </div>
+        </div>
+
+
+        <div class="operador">
+            <div class="avatar">DA</div>
+            <div>
+                <strong>Daniel dos Santos Fernandes</strong>
+                <span>Operador • Online</span>
+            </div>
+        </div>
+
+
+        <div class="operador">
+            <div class="avatar">CA</div>
+            <div>
+                <strong>carlos eduardo neves</strong>
+                <span>Operador • Online</span>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- COMO FUNCIONA -->
+
+<section class="como-funciona">
+
+    <div class="titulo-secao">
+
+        <span>FLUXO DO SISTEMA</span>
+
+        <h2>Como o VigilaCidade funciona?</h2>
+
+    </div>
+
+
+    <div class="passos">
+
+        <div>
+            <b>01</b>
+            <h3>Câmeras</h3>
+            <p>
+                Equipamentos são distribuídos em locais públicos.
+            </p>
+        </div>
+
+        <div>
+            <b>02</b>
+            <h3>Central</h3>
+            <p>
+                Os dados são reunidos em uma plataforma.
+            </p>
+        </div>
+
+        <div>
+            <b>03</b>
+            <h3>Operadores</h3>
+            <p>
+                Profissionais acompanham os equipamentos.
+            </p>
+        </div>
+
+        <div>
+            <b>04</b>
+            <h3>Ocorrência</h3>
+            <p>
+                Situações são registradas e encaminhadas.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <div class="logo">
+        <span>◉</span>
+        VigilaCidade
+    </div>
+
+    <p>
+        Projeto acadêmico de tecnologia e monitoramento urbano.
+    </p>
+
+    <small>
+<body>
+
+<header class="topo">
+
+    <div class="logo">
+        <span>◉</span>
+        VigilaCidade
+    </div>
+
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#cameras">Câmeras</a>
+        <a href="#ocorrencias">Ocorrências</a>
+        <a href="#manutencao">Manutenção</a>
+    </nav>
+
+    <button class="btn-operador" onclick="abrirPainel()">
+        Área do Operador
+    </button>
+
+</header>
+
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero" id="inicio">
+
+    <div class="hero-texto">
+
+        <span class="tag">MONITORAMENTO URBANO</span>
+
+        <h1>
+            Uma cidade mais
+            <strong>conectada e organizada.</strong>
+        </h1>
+
+        <p>
+            Uma central digital para acompanhar câmeras,
+            ocorrências, operadores, manutenção e infraestrutura
+            de monitoramento urbano.
+        </p>
+
+        <div class="hero-botoes">
+
+            <a href="#dashboard" class="btn-principal">
+                Acessar Dashboard
+            </a>
+
+            <a href="#cameras" class="btn-secundario">
+                Ver Câmeras
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="central">
+
+        <div class="central-topo">
+            <span>● CENTRAL ONLINE</span>
+            <span>24H</span>
+        </div>
+
+        <div class="mapa">
+
+            <div class="camera camera1">CAM 01</div>
+            <div class="camera camera2">CAM 02</div>
+            <div class="camera camera3">CAM 03</div>
+            <div class="camera camera4">CAM 04</div>
+            <div class="camera camera5">CAM 05</div>
+
+        </div>
+
+        <div class="central-info">
+
+            <div>
+                <strong id="miniCameras">21</strong>
+                <span>Câmeras</span>
+            </div>
+
+            <div>
+                <strong>18</strong>
+                <span>Online</span>
+            </div>
+
+            <div>
+                <strong>03</strong>
+                <span>Manutenção</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DASHBOARD -->
+
+<section class="secao" id="dashboard">
+
+    <div class="titulo-secao">
+        <span>VISÃO GERAL</span>
+
+        <h2>Dashboard de monitoramento</h2>
+
+        <p>
+            Acompanhe rapidamente a situação da infraestrutura.
+        </p>
+    </div>
+
+
+    <div class="cards">
+
+        <div class="card indicador">
+            <span class="icone">📹</span>
+            <div>
+                <small>Total de câmeras</small>
+                <strong id="totalCameras">21</strong>
+            </div>
+        </div>
+
+
+        <div class="card indicador online">
+            <span class="icone">🟢</span>
+            <div>
+                <small>Câmeras online</small>
+                <strong id="camerasOnline">18</strong>
+            </div>
+        </div>
+
+
+        <div class="card indicador alerta">
+            <span class="icone">⚠️</span>
+            <div>
+                <small>Em manutenção</small>
+                <strong id="camerasManutencao">03</strong>
+            </div>
+        </div>
+
+
+        <div class="card indicador ocorrencia">
+            <span class="icone">🚨</span>
+            <div>
+                <small>Ocorrências hoje</small>
+                <strong id="ocorrenciasHoje">07</strong>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="dashboard-grid">
+
+        <div class="painel">
+
+            <div class="painel-titulo">
+                <h3>Status das câmeras</h3>
+                <span>Atualizado agora</span>
+            </div>
+
+            <div class="barra-status">
+
+                <div class="barra">
+                    <div class="barra-online" style="width:75%"></div>
+                </div>
+
+                <div class="legenda">
+
+                    <span>
+                        <i class="verde"></i>
+                        Online
+                    </span>
+
+                    <span>
+                        <i class="amarelo"></i>
+                        Manutenção
+                    </span>
+
+                    <span>
+                        <i class="vermelho"></i>
+                        Offline
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="painel">
+
+            <div class="painel-titulo">
+                <h3>Infraestrutura</h3>
+            </div>
+
+            <div class="infra">
+
+                <div>
+                    <span>⚡ Energia</span>
+                    <strong>98%</strong>
+                </div>
+
+                <div>
+                    <span>📡 Conectividade</span>
+                    <strong>95%</strong>
+                </div>
+
+                <div>
+                    <span>🔧 Manutenção</span>
+                    <strong>03</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CÂMERAS -->
+
+<section class="secao escura" id="cameras">
+
+    <div class="titulo-secao">
+
+        <span>CENTRAL DE CÂMERAS</span>
+
+        <h2>Equipamentos monitorados</h2>
+
+        <p>
+            Consulte a situação das câmeras cadastradas.
+        </p>
+
+    </div>
+
+
+    <div class="filtros">
+
+        <input
+            type="text"
+            id="pesquisaCamera"
+            placeholder="🔎 Pesquisar câmera ou localização..."
+            onkeyup="filtrarCameras()"
+        >
+
+        <select id="filtroStatus" onchange="filtrarCameras()">
+            <option value="todos">Todos</option>
+            <option value="online">Online</option>
+            <option value="manutencao">Manutenção</option>
+            <option value="offline">Offline</option>
+        </select>
+
+    </div>
+
+
+    <div class="camera-grid" id="listaCameras">
+
+        <div class="camera-card" data-status="online">
+
+            <div class="camera-imagem">
+                <span>● AO VIVO</span>
+                <strong>CAM 001</strong>
+            </div>
+
+            <div class="camera-conteudo">
+
+                <h3>Praça Central</h3>
+
+                <p>📍 Região Central</p>
+
+                <div class="camera-status online">
+                    ● Online
+                </div>
+
+                <small>Energia: Estável</small>
+
+            </div>
+
+        </div>
+
+
+        <div class="camera-card" data-status="online">
+
+            <div class="camera-imagem">
+                <span>● AO VIVO</span>
+                <strong>CAM 002</strong>
+            </div>
+
+            <div class="camera-conteudo">
+
+                <h3>Terminal Urbano</h3>
+
+                <p>📍 Setor Norte</p>
+
+                <div class="camera-status online">
+                    ● Online
+                </div>
+
+                <small>Energia: Estável</small>
+
+            </div>
+
+        </div>
+
+
+        <div class="camera-card" data-status="manutencao">
+
+            <div class="camera-imagem manutencao">
+                <span>⚠ MANUTENÇÃO</span>
+                <strong>CAM 003</strong>
+            </div>
+
+            <div class="camera-conteudo">
+
+                <h3>Parque Municipal</h3>
+
+                <p>📍 Setor Sul</p>
+
+                <div class="camera-status manutencao">
+                    ● Manutenção
+                </div>
+
+                <small>Previsão: 14:30</small>
+
+            </div>
+
+        </div>
+
+
+        <div class="camera-card" data-status="offline">
+
+            <div class="camera-imagem offline">
+                <span>● OFFLINE</span>
+                <strong>CAM 004</strong>
+            </div>
+
+            <div class="camera-conteudo">
+
+                <h3>Avenida Principal</h3>
+
+                <p>📍 Setor Leste</p>
+
+                <div class="camera-status offline">
+                    ● Offline
+                </div>
+
+                <small>Verificar conexão</small>
+
+            </div>
+
+        </div>
+
+
+        <div class="camera-card" data-status="online">
+
+            <div class="camera-imagem">
+                <span>● AO VIVO</span>
+                <strong>CAM 005</strong>
+            </div>
+
+            <div class="camera-conteudo">
+
+                <h3>Praça da Estação</h3>
+
+                <p>📍 Setor Oeste</p>
+
+                <div class="camera-status online">
+                    ● Online
+                </div>
+
+                <small>Energia: Estável</small>
+
+            </div>
+
+        </div>
+
+
+        <div class="camera-card" data-status="online">
+
+            <div class="camera-imagem">
+                <span>● AO VIVO</span>
+                <strong>CAM 006</strong>
+            </div>
+
+            <div class="camera-conteudo">
+
+                <h3>Centro Esportivo</h3>
+
+                <p>📍 Setor Sul</p>
+
+                <div class="camera-status online">
+                    ● Online
+                </div>
+
+                <small>Energia: Estável</small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- OCORRÊNCIAS -->
+
+<section class="secao" id="ocorrencias">
+
+    <div class="titulo-secao">
+
+        <span>REGISTRO</span>
+
+        <h2>Ocorrências monitoradas</h2>
+
+        <p>
+            Área demonstrativa para registrar situações observadas pelos operadores.
+        </p>
+
+    </div>
+
+
+    <div class="ocorrencia-layout">
+
+        <form id="formOcorrencia" class="formulario">
+
+            <h3>Registrar ocorrência</h3>
+
+            <label>Local</label>
+
+            <input
+                type="text"
+                id="localOcorrencia"
+                placeholder="Ex.: Praça Central"
+                required
+            >
+
+
+            <label>Tipo de ocorrência</label>
+
+            <select id="tipoOcorrencia" required>
+
+                <option value="">Selecione</option>
+                <option>Furto</option>
+                <option>Vandalismo</option>
+                <option>Acidente</option>
+                <option>Agressão</option>
+                <option>Assédio</option>
+                <option>Outra situação</option>
+
+            </select>
+
+
+            <label>Prioridade</label>
+
+            <select id="prioridadeOcorrencia">
+
+                <option>Baixa</option>
+                <option>Normal</option>
+                <option>Alta</option>
+                <option>Urgente</option>
+
+            </select>
+
+
+            <label>Descrição</label>
+
+            <textarea
+                id="descricaoOcorrencia"
+                placeholder="Descreva a situação..."
+                required
+            ></textarea>
+
+
+            <button type="submit" class="btn-principal">
+                Registrar ocorrência
+            </button>
+
+        </form>
+
+
+        <div class="painel ocorrencias-lista">
+
+            <div class="painel-titulo">
+
+                <h3>Últimas ocorrências</h3>
+
+                <span>Dados demonstrativos</span>
+
+            </div>
+
+
+            <div id="listaOcorrencias">
+
+                <div class="ocorrencia">
+
+                    <div class="ocorrencia-icone">
+                        ⚠️
+                    </div>
+
+                    <div>
+
+                        <strong>Vandalismo</strong>
+
+                        <p>Praça Central</p>
+
+                        <small>Hoje às 18:42</small>
+
+                    </div>
+
+                    <span class="prioridade alta">
+                        Alta
+                    </span>
+
+                </div>
+
+
+                <div class="ocorrencia">
+
+                    <div class="ocorrencia-icone">
+                        🚨
+                    </div>
+
+                    <div>
+
+                        <strong>Acidente</strong>
+
+                        <p>Avenida Principal</p>
+
+                        <small>Hoje às 17:21</small>
+
+                    </div>
+
+                    <span class="prioridade normal">
+                        Normal
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MANUTENÇÃO -->
+
+<section class="secao escura" id="manutencao">
+
+    <div class="titulo-secao">
+
+        <span>INFRAESTRUTURA</span>
+
+        <h2>Controle de manutenção</h2>
+
+        <p>
+            Acompanhe equipamentos que precisam de intervenção.
+        </p>
+
+    </div>
+
+
+    <div class="tabela-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Câmera</th>
+                    <th>Local</th>
+                    <th>Problema</th>
+                    <th>Energia</th>
+                    <th>Status</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>CAM 003</td>
+                    <td>Parque Municipal</td>
+                    <td>Manutenção preventiva</td>
+                    <td>Estável</td>
+                    <td>
+                        <span class="status manutencao">
+                            Em manutenção
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>CAM 004</td>
+                    <td>Avenida Principal</td>
+                    <td>Falha de conexão</td>
+                    <td>Estável</td>
+                    <td>
+                        <span class="status offline">
+                            Offline
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>CAM 009</td>
+                    <td>Praça Norte</td>
+                    <td>Fonte de energia</td>
+                    <td>Instável</td>
+                    <td>
+                        <span class="status manutencao">
+                            Verificar
+                        </span>
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+<!-- OPERADORES -->
+
+<section class="secao">
+
+    <div class="titulo-secao">
+
+        <span>EQUIPE</span>
+
+        <h2>Operadores de monitoramento</h2>
+
+        <p>
+            Controle demonstrativo dos profissionais responsáveis pelo acompanhamento.
+        </p>
+
+    </div>
+
+
+    <div class="operadores">
+
+        <div class="operador">
+            <div class="avatar">FO</div>
+            <div>
+                <strong>Felipe de Oliveira Tomaello</strong>
+                <span>Operador • Online</span>
+            </div>
+        </div>
+
+
+        <div class="operador">
+            <div class="avatar">DO</div>
+            <div>
+                <strong>Douglas Rodrigues Farias</strong>
+                <span>Operador • Online</span>
+            </div>
+        </div>
+
+
+        <div class="operador">
+            <div class="avatar">KP</div>
+            <div>
+                <strong>Kauan Pietro Cunha Rodrigues</strong>
+                <span>Operador • Online</span>
+            </div>
+<body>
+
+<header class="topo">
+
+    <div class="logo">
+        <span>◉</span>
+        VigilaCidade
+    </div>
+
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#cameras">Câmeras</a>
+        <a href="#ocorrencias">Ocorrências</a>
+        <a href="#manutencao">Manutenção</a>
+    </nav>
+
     <button class="btn-operador" onclick="abrirPainel()">
         Área do Operador
     </button>
@@ -792,6 +2250,128 @@
     </p>
 
     <small>
+        Este protótipo utiliza informações fictícias.
+        Não utilize dados reais de pessoas ou imagens reais.
+    </small>
+
+</footer>
+
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
+        </div>
+
+
+        <div class="operador">
+            <div class="avatar">EC</div>
+            <div>
+                <strong>Emanuel Cristian Ora de Oliveira</strong>
+                <span>Operador • Offline</span>
+            </div>
+        </div>
+
+
+        <div class="operador">
+            <div class="avatar">DA</div>
+            <div>
+                <strong>Daniel dos Santos Fernandes</strong>
+                <span>Operador • Online</span>
+            </div>
+        </div>
+
+
+        <div class="operador">
+            <div class="avatar">CA</div>
+            <div>
+                <strong>carlos eduardo neves</strong>
+                <span>Operador • Online</span>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- COMO FUNCIONA -->
+
+<section class="como-funciona">
+
+    <div class="titulo-secao">
+
+        <span>FLUXO DO SISTEMA</span>
+
+        <h2>Como o VigilaCidade funciona?</h2>
+
+    </div>
+
+
+    <div class="passos">
+
+        <div>
+            <b>01</b>
+            <h3>Câmeras</h3>
+            <p>
+                Equipamentos são distribuídos em locais públicos.
+            </p>
+        </div>
+
+        <div>
+            <b>02</b>
+            <h3>Central</h3>
+            <p>
+                Os dados são reunidos em uma plataforma.
+            </p>
+        </div>
+
+        <div>
+            <b>03</b>
+            <h3>Operadores</h3>
+            <p>
+                Profissionais acompanham os equipamentos.
+            </p>
+        </div>
+
+        <div>
+            <b>04</b>
+            <h3>Ocorrência</h3>
+            <p>
+                Situações são registradas e encaminhadas.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <div class="logo">
+        <span>◉</span>
+        VigilaCidade
+    </div>
+
+    <p>
+        Projeto acadêmico de tecnologia e monitoramento urbano.
+    </p>
+
+    <small>
+        Este protótipo utiliza informações fictícias.
+        Não utilize dados reais de pessoas ou imagens reais.
+    </small>
+
+</footer>
+
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
         Este protótipo utiliza informações fictícias.
         Não utilize dados reais de pessoas ou imagens reais.
     </small>
